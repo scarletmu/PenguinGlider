@@ -1,0 +1,21 @@
+[package]
+name = "penguin-glider"
+version = "0.1.0"
+edition = "2021"
+description = "清理 Mac 版 QQ（NT 内核）群聊产生的图片 / 视频 / 斗图表情缓存的 CLI 工具"
+license = "MIT"
+
+[[bin]]
+name = "pglider"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+walkdir = "2"
+trash = "5"
+anyhow = "1"
+dialoguer = "0.11"
+
+[profile.release]
+strip = true
+lto = true
