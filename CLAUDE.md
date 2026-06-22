@@ -49,6 +49,11 @@ cargo build
 
 测删除逻辑请用合成 fixture（`mktemp -d` 造同构目录）经 `--root` 跑，**不要**用真实 QQ 数据做破坏性测试。
 
+## 发版
+
+GitHub Release 由 `.github/workflows/release.yml` 自动完成：push 形如 `vX.Y.Z` 的 tag 即触发，交叉编译 macOS `aarch64` + `x86_64`，打包 `tar.gz` + `sha256` 上传到同名 Release。流程：改 `Cargo.toml` 版本 → 推 main → `git tag vX.Y.Z && git push origin vX.Y.Z`。
+注意：workflow 必须先在 **默认分支** 上 GitHub 才会注册 / 触发，只随 tag 推送不会生效。
+
 ## 文档约定
 
 行为 / 选项变更时，同步更新 `README.md`（用户）与本文件（架构）。新增需要落档的概念若无处可放，先问用户，别擅自新建顶层文档。
