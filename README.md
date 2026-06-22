@@ -27,6 +27,24 @@ QQ NT 把聊天产生的媒体按 `<类目>/YYYY-MM/<变体>/<md5>.<ext>` 缓存
 
 ## 安装
 
+### 下载预编译二进制（推荐）
+
+到 [Releases](https://github.com/scarletmu/PenguinGlider/releases) 下载对应架构的包：
+
+- Apple Silicon（M 系列）：`pglider-<版本>-aarch64-apple-darwin.tar.gz`
+- Intel：`pglider-<版本>-x86_64-apple-darwin.tar.gz`
+
+```bash
+tar xzf pglider-*-apple-darwin.tar.gz
+# 可选：移到 PATH
+mv pglider /usr/local/bin/
+```
+
+> macOS 首次运行未签名二进制可能被 Gatekeeper 拦截，按提示在「系统设置 → 隐私与安全性」放行，
+> 或执行 `xattr -d com.apple.quarantine ./pglider` 后再运行。
+
+### 从源码构建
+
 ```bash
 cargo build --release
 # 产物：target/release/pglider
